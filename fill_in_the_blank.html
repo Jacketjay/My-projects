@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- add the css style sheet link here : ) -->
+    <title>HTML Practice</title>
+</head>
+<!-- custom bullet points, Sets padding and borders for website. -->
+
+
+<body id="myBody" style="background-color:rgb(62, 183, 199);">
+
+
+<!--******************************************************************************************-->   
+<!--  a header tag with text "Welcome to HTML Practice" -->
+<h1 id="myHeader" style="text-align:center;">Welcome to HTML Practice</h1>
+ <!--******************************************************************************************--> 
+
+<!--******************************************************************************************--> 
+<!--  a paragraph tag with some placeholder text -->
+<p style="color:rgb(108, 0, 108);">
+I have no clue what I am doing.
+</p>
+<!--******************************************************************************************--> 
+
+
+<!--******************************************************************************************--> 
+<!--  an image tag with a placeholder image source and alt text -->
+<IMG SRC = "DOG.JPG" alt="It's a doggy!" style="padding: 5px 5px 5px 5px;width:240px;height:240px;"><br>
+ <!--******************************************************************************************--> 
+    
+<!--******************************************************************************************--> 
+    <!--  a link to an external website with text "Click here to visit OpenAI" -->
+    <a href = "https://openai.com/">Click here to visit OpenAI</a>
+<!--******************************************************************************************--> 
+
+<!--******************************************************************************************--> 
+    <!-- an unordered list with three list items of your choice -->
+<ul>
+<li>Iron</li>
+<li>Timber</li>
+<li>Steel</li>
+<li>Acid</li>
+<li>Oil</li>
+</ul>
+<!--******************************************************************************************--> 
+
+<!--******************************************************************************************--> 
+<!-- a table with 2 rows and 2 columns, including table headers -->
+<table>
+<tr>
+<th>custom1</th>
+<th>custom2</th>
+<th>custom3</th>
+</tr>
+<tr>
+<td>copper</td>
+<td>steel</td>
+<td>iron</td>
+</tr>
+</table>
+<!--******************************************************************************************--> 
+
+
+    <!-- a form with a text input, email input, and a submit button -->
+
+<!--******************************************************************************************--> 
+<p>Enter in your name here: </p><input type="text" id="myText" value="Some text...">
+<br>
+<button type="button"
+onclick= "myText()">Click me to submit.</button>
+<!-- checks if you have a valid email. -->
+<p>Enter in your Email here: <br><input type="text" name="email" id="emailInput" onblur="validateEmailInput();" />
+    <span id="emailFeedback"></span><br>
+
+<button type="button"
+onclick= "myEmail()">Click me to submit.</button>
+
+<p id="demo"></p>
+
+<script>
+    function myText() {
+      var x = document.getElementById("myText").value;
+      document.getElementById("demo").innerHTML = x;
+    }
+</script>
+<!-- Displays the inputed name. -->
+<script>
+    function myEmail() {
+      var y = document.getElementById("myEmail").value;
+      document.getElementById("demo").innerHTML = y;
+    }
+</script>
+<!--******************************************************************************************--> 
+<!-- custom Alerts -->
+<!--******************************************************************************************--> 
+<body>
+    
+    <div class="container">
+        <h1>Eat my Custom Alerts</h1>
+        <button class="custom-button">Show Alert</button>
+        <br>
+    </div>
+    <div id="customAlertBox" class="custom-alert">
+        <div class="custom-alert-content">
+            <span class="close">×</span>
+            <p id="alertMessage"></p>
+        </div>
+    </div>
+    <script>
+        let alertBox = document.getElementById("customAlertBox");
+        let alertMessageContainer = document.getElementById("alertMessage");
+        let customButton = document.querySelector(".custom-button");
+        let closeButton = document.querySelector(".close");
+
+        customButton.addEventListener('click', function () {
+            alertMessageContainer.innerHTML = "You did it!!";
+            alertBox.style.display = "block";
+        });
+
+        closeButton.addEventListener('click', function () {
+            alertBox.style.display = "none";
+        });
+    </script>
+    <br>
+</body>
+<!--******************************************************************************************--> 
+<!-- a function to change the text of a header when a button is clickeds -->
+<!--******************************************************************************************--> 
+<button onclick="changeHeaderText()">Change Header Text</button>
+<script>
+    // JavaScript
+    function changeHeaderText() {
+      const header = document.getElementById('myHeader');
+      header.innerHTML = 'This is the Doggo cave!';
+    }
+</script>
+<!--******************************************************************************************--> 
+<!-- a function to validate an email input in a form -->
+<!--******************************************************************************************--> 
+<script>
+    function validateEmailInput() {
+        const emailInput = document.getElementById('emailInput').value;
+        const feedbackElement = document.getElementById('emailFeedback');
+        const emailRegex = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
+        if (emailRegex.test(emailInput)) {
+            feedbackElement.textContent = 'Valid email address!';
+            // You can also style the feedback element or perform other actions.
+        } else {
+            feedbackElement.textContent = 'Invalid email address!';
+        }
+    }
+    </script>
+<!--******************************************************************************************--> 
+
+<!-- a function to dynamically add a new list item to an unordered list and remove a already existing Item from an unordered list. -->
+<!--******************************************************************************************--> 
+<body>
+
+    <ul id="dynamic-list"></ul>
+
+    <input type="text" id="candidate"/>
+    <button onclick="addItem()">add item</button>
+    <button onclick="removeItem()">remove item</button>
+
+
+
+    </script>
+</body>
+<script>
+function addItem(){
+    var ul = document.getElementById("dynamic-list");
+    var candidate = document.getElementById("candidate");
+    var li = document.createElement("li");
+    li.setAttribute('id',candidate.value);
+    li.appendChild(document.createTextNode(candidate.value));
+    ul.appendChild(li);
+}
+</script>
+
+<script>
+function removeItem(){
+    var ul = document.getElementById("dynamic-list");
+    var candidate = document.getElementById("candidate");
+    var item = document.getElementById(candidate.value);
+    ul.removeChild(item);
+}
+</script>
+<!--******************************************************************************************--> 
+
+<!-- Will display Hello world when a it detects a click. -->
+<!--******************************************************************************************--> 
+<p id="peek"></p>
+
+<script>
+    document.addEventListener("click", myFunction);
+    
+    function myFunction() {
+      document.getElementById("peek").innerHTML = "Hello World";
+    }
+    </script>
+<!--******************************************************************************************--> 
+<!-- an event listener to log a message when the document is fully loaded -->
+<!--******************************************************************************************--> 
+<script>
+    window.addEventListener('load', (event) => {
+   console.log('The page has fully loaded');
+ });
+     </script>
+ <!--******************************************************************************************--> 
+<!-- a function to change the background color of the body when a button is clicked -->
+ <!--******************************************************************************************-->
+ <button onclick="changeBackgroundColor()">
+    Click here
+</button>
+
+<script>
+    
+function changeColor(color) {
+            document.body.style.background = color;
+        }
+
+function changeBackgroundColor(color) {
+    changeColor('powderblue');
+    result.innerHTML = "Background Color changed";
+}
+</script>
+<!--******************************************************************************************-->
+<!-- uses a function to fetch data from an pokemon API and log it to the consoles and display sprites. -->
+<!--******************************************************************************************-->
+<body>
+<br><br>
+    <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
+    <button onclick="fetchData()">Fetch Pokemon</button><br>
+    
+    <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="display: none">
+    
+<script src="fetch.js"></script>
+</body>
+<!--******************************************************************************************-->
+<br><br><br>
+<!-- a function to hide or show an element when a button is clicked -->
+<style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  
+  <button id="hide">Hide Element</button>
+  <button id="show">Show Element</button>
+  <div id="myElement" class="hidden">This is the hidden element.</div>
+  
+  <script>
+    const elem = document.getElementById("myElement");
+    const hide = document.getElementById("hide");
+    const show = document.getElementById("show");
+  
+    hide.addEventListener("click", function () {
+      elem.classList.add("hidden");
+    });
+  
+    show.addEventListener("click", function () {
+      elem.classList.remove("hidden");
+    });
+  </script>
+<br><br><br><br>
+</html>
